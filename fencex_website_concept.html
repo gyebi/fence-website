@@ -6,8 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="FENCEX designs and develops websites, web apps, mobile apps, cloud systems, and digital tools for growing businesses.">
   <title>FENCEX | Secure, Modern Digital Solutions</title>
+  <link rel="icon" type="image/jpeg" href="assets/fence-logo.jpeg">
+  <link rel="apple-touch-icon" href="assets/fence-logo.jpeg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 <div class="logo-intro">
@@ -20,21 +23,7 @@
   <h2 class="sr-only">FENCEX website with navigation, hero section, services, process, pricing, testimonials, FAQ, and footer.</h2>
 
   <!-- HEADER -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="nav-logo" href="#" aria-label="FenceX home">
-        <img class="logo-image" src="assets/fence-logo.jpeg" alt="FenceX logo">
-        <span class="logo-text">FENCE<span>X</span></span>
-      </a>
-      <div class="nav-links">
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#process">Process</a>
-        <a class="nav-link" href="#pricing">Pricing</a>
-        <a class="nav-link" href="#about">About</a>
-        <button class="nav-cta primary">Book a call</button>
-      </div>
-    </nav>
-  </header>
+  <div data-site-header></div>
 
   <main class="home-page">
     <!-- HERO -->
@@ -43,7 +32,7 @@
       <h1>Building Secure, Modern Digital Solutions</h1>
       <p class="hero-sub">FENCEX designs and develops websites, web apps, mobile apps, cloud systems, and digital tools for growing businesses.</p>
       <div class="hero-ctas">
-        <button class="btn-primary" onclick="sendPrompt('I want to start a project with FENCEX')">Start a Project</button>
+        <a class="btn-primary" href="contact.html">Start a Project</a>
       </div>
       <div class="hero-trust">
         <span>Websites</span>
@@ -53,216 +42,19 @@
         <span>Cloud Systems</span>
       </div>
     </section>
-  <!-- STATS -->
-  <section class="section" id="services">
-    <div class="stats-row">
-      <div class="stat"><div class="stat-n">2–4</div><div class="stat-l">weeks to launch</div></div>
-      <div class="stat"><div class="stat-n">3</div><div class="stat-l">global markets</div></div>
-      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">founder-first</div></div>
-    </div>
-
-    <!-- SERVICES -->
-    <div class="section-tag">OUR SERVICES</div>
-    <div class="section-title">What we build for you</div>
-    <p class="section-sub">Everything a startup needs to go from idea to live digital product — fast, clean, and built to grow.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-layout" style="color:#007A8A;font-size:18px" aria-hidden="true"></i></div>
-        <h4>Startup websites</h4>
-        <p>High-converting landing pages and full websites that make your startup look credible from day one.</p>
-        <span class="service-tag">From 2 weeks</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-rocket" style="color:#3B6D11;font-size:18px" aria-hidden="true"></i></div>
-        <h4>SaaS MVP builds</h4>
-        <p>Custom web applications and dashboards — built to validate your idea fast without the $50K price tag.</p>
-        <span class="service-tag">From 3–4 weeks</span>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-refresh" style="color:#854F0B;font-size:18px" aria-hidden="true"></i></div>
-        <h4>Monthly maintenance</h4>
-        <p>Stay fast, secure, and growing with ongoing support, updates, and new features every month.</p>
-        <span class="service-tag">Monthly plan</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section" id="process">
-    <div class="section-tag">THE PROCESS</div>
-    <div class="section-title">From idea to live in 4 steps</div>
-    <p class="section-sub">Simple, transparent, and designed to move at startup speed.</p>
-    <div class="steps">
-      <div class="step active">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <h4>Discovery call</h4>
-          <p>A free 15-minute call to understand your idea, goals, and budget. No pressure, no jargon — just a conversation.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <h4>Proposal & plan</h4>
-          <p>You receive a clear proposal with scope, timeline, and fixed pricing within 48 hours of your call.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <h4>We build</h4>
-          <p>Our team builds your product using the best tools and AI-assisted development — fast, clean, and scalable.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <h4>You launch</h4>
-          <p>We hand over a polished, scalable product and stay with you for support, updates, and growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="section" id="pricing">
-    <div class="section-tag">PRICING</div>
-    <div class="section-title">Simple, transparent pricing</div>
-    <p class="section-sub">Startup-friendly packages with no hidden fees. All prices are negotiable — book a call for a custom quote.</p>
-    <div class="pricing-grid">
-      <div class="plan">
-        <h4>Basic</h4>
-        <div class="plan-price">Contact us</div>
-        <div class="plan-sub">Perfect to start</div>
-        <ul class="plan-features">
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Landing page or simple site</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Mobile responsive</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Delivered in 2 weeks</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>1 revision round</li>
-        </ul>
-        <button class="plan-btn">Get started</button>
-      </div>
-      <div class="plan featured">
-        <div class="plan-badge">Most popular</div>
-        <h4>Growth</h4>
-        <div class="plan-price">Contact us</div>
-        <div class="plan-sub">For serious founders</div>
-        <ul class="plan-features">
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Multi-page site or MVP</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Custom design & branding</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Delivered in 3–4 weeks</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>2 revision rounds</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>30-day support included</li>
-        </ul>
-        <button class="plan-btn">Get started</button>
-      </div>
-      <div class="plan">
-        <h4>Scale</h4>
-        <div class="plan-price">Contact us</div>
-        <div class="plan-sub">Full SaaS builds</div>
-        <ul class="plan-features">
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Full SaaS product build</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>User auth & database</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Delivered in 4–8 weeks</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Unlimited revisions</li>
-          <li class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>3-month support plan</li>
-        </ul>
-        <button class="plan-btn">Get started</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section">
-    <div class="section-tag">WHAT FOUNDERS SAY</div>
-    <div class="section-title">Built for founders like you</div>
-    <p class="section-sub">Real words from real founders who trusted FenceX with their digital foundation.</p>
-    <div class="testimonials">
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="tq">"FenceX took our idea from a napkin sketch to a working product in 3 weeks. We couldn't believe how fast and clean it was."</p>
-        <div class="ta">
-          <div class="ta-av">SK</div>
-          <div><div class="ta-name">Sarah K.</div><div class="ta-role">Founder, TalentFlow</div></div>
-        </div>
-      </div>
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="tq">"As a non-technical founder I was terrified of the tech side. FenceX explained everything clearly and delivered exactly what we needed."</p>
-        <div class="ta">
-          <div class="ta-av">JO</div>
-          <div><div class="ta-name">James O.</div><div class="ta-role">CEO, PayLink Africa</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <div class="section-tag">FAQ</div>
-    <div class="section-title">Common questions</div>
-    <div class="faq" id="faq">
-      <div class="faq-item">
-        <div class="faq-q">How long does a project take? <i class="ti ti-chevron-down" aria-hidden="true"></i></div>
-        <div class="faq-a">Most projects are delivered in 2–4 weeks depending on complexity. We always give you a fixed timeline before we start — no surprises.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Do I need to be technical? <i class="ti ti-chevron-down" aria-hidden="true"></i></div>
-        <div class="faq-a">Not at all. FenceX is built for non-technical founders. We translate your vision into a product — you focus on your business.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What happens after launch? <i class="ti ti-chevron-down" aria-hidden="true"></i></div>
-        <div class="faq-a">We don't disappear. You can choose a monthly maintenance plan for ongoing support, updates, and new features as your startup grows.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How much does it cost? <i class="ti ti-chevron-down" aria-hidden="true"></i></div>
-        <div class="faq-a">Pricing depends on your project scope. We offer startup-friendly packages across three tiers — Basic, Growth, and Scale. Book a free call and we'll give you a clear quote within 48 hours.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Which markets do you serve? <i class="ti ti-chevron-down" aria-hidden="true"></i></div>
-        <div class="faq-a">We serve startups across the United States, United Kingdom, and Africa — with a particular passion for African founders building for global markets.</div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <div class="cta-section">
     <div class="cta-q">Ready to make your X?</div>
     <h2>Let's build your foundation.</h2>
     <p>Book a free 15-minute discovery call. No pressure. No jargon. Just a conversation about your idea.</p>
-    <button class="btn-primary" onclick="sendPrompt('I want to book a discovery call with FenceX — what should I prepare?')">Book your free call ↗</button>
+    <a class="btn-primary" href="contact.html">Book your free call ↗</a>
   </div>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <a class="footer-logo" href="#" aria-label="FenceX home">
-      <img class="footer-logo-image" src="assets/fence-logo.jpeg" alt="FenceX logo">
-      <span>FENCE<span>X</span></span>
-    </a>
-    <div class="footer-links">
-      <a class="footer-link" href="#services">Services</a>
-      <a class="footer-link" href="#pricing">Pricing</a>
-      <a class="footer-link" href="#about">About</a>
-      <a class="footer-link" href="mailto:hello@fencex.io">Contact</a>
-    </div>
-    <div class="footer-copy">© 2026 FenceX. All rights reserved. · fencex.io · hello@fencex.io</div>
-  </footer>
+  <div data-site-footer></div>
 </div>
 
-<script>
-function sendPrompt(message) {
-  console.log(message);
-}
-
-document.getElementById('faq').addEventListener('click', e => {
-  const item = e.target.closest('.faq-item');
-  if (!item) return;
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-});
-</script>
 </body>
 </html>
