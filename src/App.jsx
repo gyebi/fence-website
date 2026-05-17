@@ -3,41 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   Check,
   ChevronDown,
-  Globe2,
-  LayoutTemplate,
   Mail,
   Menu,
-  RefreshCw,
-  Rocket,
-  Settings,
-  Smartphone,
   X,
 } from "lucide-react";
 import fenceLogo from "../assets/fence-logo.jpeg";
-
-const services = [
-  {
-    icon: LayoutTemplate,
-    title: "Startup websites",
-    text: "High-converting landing pages and full websites that make your startup look credible from day one.",
-    tag: "From 2 weeks",
-    color: "#007A8A",
-  },
-  {
-    icon: Rocket,
-    title: "SaaS MVP builds",
-    text: "Custom web applications and dashboards built to validate your idea fast without the $50K price tag.",
-    tag: "From 3-4 weeks",
-    color: "#3B6D11",
-  },
-  {
-    icon: RefreshCw,
-    title: "Monthly maintenance",
-    text: "Stay fast, secure, and growing with ongoing support, updates, and new features every month.",
-    tag: "Monthly plan",
-    color: "#854F0B",
-  },
-];
+import startupSeedling from "../assets/startup_seedling.jpg";
+import whoWeServeNetworkColumn from "../assets/who-we-serve-network-column.png";
+import nanasMamaLogo from "../assets/nanasmama-logo-inverted.png";
+import huskAndHiveLogo from "../assets/husk-and-hive-logo.jpeg";
+import handimanLogo from "../assets/handiman-logo.png";
 
 const processSteps = [
   ["01", "Discovery call", "A free 15-minute call to understand your idea, goals, and budget. No pressure, no jargon, just a conversation."],
@@ -72,21 +47,47 @@ const faqs = [
   ["Which markets do you serve?", "We serve startups across the United States, United Kingdom, and Africa, with a passion for African founders building globally."],
 ];
 
-const projects = [
+const portfolioProjects = [
   {
-    title: "Launch Website",
-    type: "Startup website",
-    text: "A fast marketing site with conversion-focused pages, analytics, and clean handoff.",
+    type: "Gifting and ecommerce platform",
+    title: "Nana's Mama",
+    description: "The Nana's Mama website is a modern gifting and ecommerce platform designed to showcase curated gift boxes, custom packaging services, personalized gifts, and authentic African beauty products.",
+    tech: "React, ecommerce UX, responsive design",
+    image: nanasMamaLogo,
+    alt: "Nana's Mama logo",
+    buttonText: "View project",
+    href: "https://nanaamama.web.app/",
   },
   {
-    title: "Founder Dashboard",
-    type: "Web app",
-    text: "A secure MVP dashboard for validating product workflows before a full SaaS build.",
+    title: "Husk & Hive",
+    type: "Natural food brand website",
+    description: "Husk & Hive is a modern brand website for organic legumes and raw honey from Ghana, showcasing natural products, the founder story, product benefits, and a simple order journey.",
+    tech: "HTML, CSS, JavaScript, responsive design",
+    image: huskAndHiveLogo,
+    alt: "Husk & Hive logo",
+    buttonText: "View project",
+    href: "https://huskandhivegh.com/",
   },
   {
-    title: "Mobile Experience",
-    type: "Mobile app",
-    text: "A lightweight app interface designed around speed, usability, and future growth.",
+    title: "Handiman",
+    type: "Service marketplace platform",
+    description: "Handiman is a mobile-first PWA that connects customers with trusted mobile mechanics through real-time service coordination and a multi-dashboard ecosystem.",
+    tech: "Firebase, PWA, offline support, real-time dashboards",
+    image: handimanLogo,
+    alt: "Handiman Mechanics logo",
+    imageTone: "light",
+    buttonText: "View project",
+    href: "https://handiman-web.web.app",
+  },
+  {
+    title: "Inventory Management",
+    type: "Inventory management app",
+    description: "A Vite and Firebase inventory management app used to manage products, stock receiving, sales, suppliers, staff, and dashboard reporting through separate page modules.",
+    tech: "Vite, Firebase, Cloud Functions, inventory workflows",
+    image: startupSeedling,
+    alt: "Inventory management project preview",
+    buttonText: "View project",
+    href: "https://inventory-app-19d04.web.app",
   },
 ];
 
@@ -188,11 +189,13 @@ function Navbar() {
 function Hero() {
   return (
     <section className="hero" id="about">
-      <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.35 }}>
-        <div className="hero-tag">Website, App & Cloud Development</div>
-        <h1>Building Secure, Modern Digital Solutions</h1>
+      <img className="hero-image" src={startupSeedling} alt="" aria-hidden="true" />
+      <div className="hero-overlay" aria-hidden="true" />
+      <motion.div className="hero-content" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.35 }}>
+        <div className="hero-tag">Startup Technology Partner</div>
+        <h1>Build, protect, and scale your startup idea.</h1>
         <p className="hero-sub">
-          FENCEX designs and develops websites, web apps, mobile apps, cloud systems, and digital tools for growing businesses.
+          Fence helps founders launch faster, cheaper, and smarter with scalable websites, MVPs, and digital products built for long-term growth. Rooted in Eban, the Adinkra symbol of protection and love, Fence exists to protect every founder's idea from concept to global scale.
         </p>
         <div className="hero-ctas">
           <a className="btn-primary" href="mailto:hello@fencex.io">Start a Project</a>
@@ -227,49 +230,55 @@ function Section({ children, id, tone = "dark" }) {
 function Services() {
   return (
     <Section id="services" tone="light">
-      <div className="stats-row">
-        <div className="stat"><div className="stat-n">2-4</div><div className="stat-l">weeks to launch</div></div>
-        <div className="stat"><div className="stat-n">3</div><div className="stat-l">global markets</div></div>
-        <div className="stat"><div className="stat-n">100%</div><div className="stat-l">founder-first</div></div>
-      </div>
-      <div className="section-tag">OUR SERVICES</div>
-      <div className="section-title">What we build for you</div>
-      <p className="section-sub">Everything a startup needs to go from idea to live digital product: fast, clean, and built to grow.</p>
-      <div className="services-grid">
-        {services.map(({ icon: Icon, title, text, tag, color }) => (
-          <div className="service-card" key={title}>
-            <div className="service-icon"><Icon size={18} color={color} /></div>
-            <h4>{title}</h4>
-            <p>{text}</p>
-            <span className="service-tag">{tag}</span>
+      <div className="services-top">
+        <div className="services-copy">
+          <div className="section-tag">OUR SERVICES</div>
+          <div className="section-title">What we build for you</div>
+          <p className="section-sub">Everything a startup needs, to go from, an idea to a live digital product: fast, clean, and scalable.</p>
+          <div className="serve-block">
+            <div className="section-tag">WHO WE SERVE</div>
+            <h3>Designed for early-stage startups and ambitious founders.</h3>
+            <p>
+              Fence works with founders who need more than a developer. They need a partner who understands speed, budget, growth, and execution.
+            </p>
+            <p>
+              Our target markets include the United States, United Kingdom, and Africa, with a focus on helping founders build products that can compete globally.
+            </p>
           </div>
-        ))}
+        </div>
+        <figure className="services-visual">
+          <img src={whoWeServeNetworkColumn} alt="Interconnected startup audiences served by Fence" />
+        </figure>
       </div>
     </Section>
   );
 }
 
 function Projects() {
-  const icons = [Globe2, Settings, Smartphone];
-
   return (
     <Section id="projects">
       <div className="section-tag">PROJECT SHOWCASE</div>
-      <div className="section-title">Project cards ready to grow</div>
-      <p className="section-sub">These cards are structured so future live projects, case studies, screenshots, and admin-managed content can drop in cleanly.</p>
-      <div className="projects-grid">
-        {projects.map((project, index) => {
-          const Icon = icons[index];
-          return (
-            <article className="project-card" key={project.title}>
-              <div className="project-icon"><Icon size={20} /></div>
-              <div className="project-type">{project.type}</div>
+      <div className="section-title">Projects</div>
+      <p className="section-sub">Select sample of projects executed over the period.</p>
+      <div className="cards-contain">
+        {portfolioProjects.map((project) => (
+          <div className="card-porto-1" key={project.title}>
+            <img className={project.imageTone === "light" ? "project-image-light" : undefined} src={project.image} alt={project.alt} />
+            <div className="text-box-1">
+              <span className="project-type">{project.type}</span>
               <h4>{project.title}</h4>
-              <p>{project.text}</p>
-              <a href="#contact">Discuss similar work</a>
-            </article>
-          );
-        })}
+              <p>{project.description}</p>
+              <p className="project-tech">{project.tech}</p>
+            </div>
+            {project.href ? (
+              <a className="btn" href={project.href} target="_blank" rel="noreferrer">
+                {project.buttonText}
+              </a>
+            ) : (
+              <button className="btn" type="button">{project.buttonText}</button>
+            )}
+          </div>
+        ))}
       </div>
     </Section>
   );
