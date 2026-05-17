@@ -209,10 +209,10 @@ function Hero() {
   );
 }
 
-function Section({ children, id }) {
+function Section({ children, id, tone = "dark" }) {
   return (
     <motion.section
-      className="section"
+      className={`section section-${tone}`}
       id={id}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +226,7 @@ function Section({ children, id }) {
 
 function Services() {
   return (
-    <Section id="services">
+    <Section id="services" tone="light">
       <div className="stats-row">
         <div className="stat"><div className="stat-n">2-4</div><div className="stat-l">weeks to launch</div></div>
         <div className="stat"><div className="stat-n">3</div><div className="stat-l">global markets</div></div>
@@ -277,7 +277,7 @@ function Projects() {
 
 function Process() {
   return (
-    <Section id="process">
+    <Section id="process" tone="light">
       <div className="section-tag">THE PROCESS</div>
       <div className="section-title">From idea to live in 4 steps</div>
       <p className="section-sub">Simple, transparent, and designed to move at startup speed.</p>
@@ -322,7 +322,7 @@ function Pricing() {
 
 function Testimonials() {
   return (
-    <Section>
+    <Section tone="light">
       <div className="section-tag">WHAT FOUNDERS SAY</div>
       <div className="section-title">Built for founders like you</div>
       <p className="section-sub">Real words from real founders who trusted FENCEX with their digital foundation.</p>
@@ -380,7 +380,7 @@ function FAQ() {
 
 function Contact() {
   return (
-    <Section id="contact">
+    <Section id="contact" tone="light">
       <div className="section-tag">CONTACT</div>
       <div className="section-title">Start a project</div>
       <p className="section-sub">The form is ready for Firebase Firestore or an email service when you want to connect the backend.</p>
