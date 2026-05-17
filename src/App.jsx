@@ -6,11 +6,12 @@ import {
   Globe2,
   LayoutTemplate,
   Mail,
-  Newspaper,
+  Menu,
   RefreshCw,
   Rocket,
   Settings,
   Smartphone,
+  X,
 } from "lucide-react";
 import fenceLogo from "../assets/fence-logo.jpeg";
 
@@ -54,7 +55,6 @@ const plans = [
   {
     name: "Growth",
     sub: "For serious founders",
-    featured: true,
     features: ["Multi-page site or MVP", "Custom design & branding", "Delivered in 3-4 weeks", "2 revision rounds", "30-day support included"],
   },
   {
@@ -88,12 +88,6 @@ const projects = [
     type: "Mobile app",
     text: "A lightweight app interface designed around speed, usability, and future growth.",
   },
-];
-
-const articles = [
-  "How to scope your first SaaS MVP",
-  "What founders should prepare before a web build",
-  "Choosing between a website, web app, and mobile app",
 ];
 
 function IntroAnimation() {
@@ -131,22 +125,60 @@ function IntroAnimation() {
 }
 
 function Navbar() {
+  const navItems = [
+    ["#about", "About"],
+    ["#services", "Services"],
+    ["#projects", "Projects"],
+    ["#process", "Process"],
+    ["#pricing", "Pricing"],
+  ];
+  const [activeHref, setActiveHref] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (href) => {
+    setActiveHref(href);
+    setMenuOpen(false);
+  };
+
   return (
     <header className="site-header">
-      <nav className="nav" aria-label="Main navigation">
+      <nav className={`nav ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
         <a className="nav-logo" href="#" aria-label="FenceX home">
           <img className="logo-image" src={fenceLogo} alt="FenceX logo" />
           <span className="logo-text">
             FENCE<span>X</span>
           </span>
         </a>
-        <div className="nav-links">
-          <a className="nav-link" href="#services">Services</a>
-          <a className="nav-link" href="#projects">Projects</a>
-          <a className="nav-link" href="#process">Process</a>
-          <a className="nav-link" href="#pricing">Pricing</a>
-          <a className="nav-link" href="#articles">Articles</a>
-          <a className="nav-cta primary" href="#contact">Contact</a>
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="site-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+        </button>
+        <div className="nav-links" id="site-menu">
+          {navItems.map(([href, label]) => (
+            <a
+              className={`nav-link ${activeHref === href ? "active" : ""}`}
+              href={href}
+              aria-current={activeHref === href ? "page" : undefined}
+              key={href}
+              onClick={() => handleNavClick(href)}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            className={`nav-link ${activeHref === "#contact" ? "active" : ""}`}
+            href="#contact"
+            aria-current={activeHref === "#contact" ? "page" : undefined}
+            onClick={() => handleNavClick("#contact")}
+          >
+            Contact
+          </a>
         </div>
       </nav>
     </header>
@@ -272,10 +304,8 @@ function Pricing() {
       <p className="section-sub">Startup-friendly packages with no hidden fees. Book a call for a custom quote.</p>
       <div className="pricing-grid">
         {plans.map((plan) => (
-          <div className={`plan ${plan.featured ? "featured" : ""}`} key={plan.name}>
-            {plan.featured && <div className="plan-badge">Most popular</div>}
+          <div className="plan" key={plan.name}>
             <h4>{plan.name}</h4>
-            <div className="plan-price">Contact us</div>
             <div className="plan-sub">{plan.sub}</div>
             <ul className="plan-features">
               {plan.features.map((feature) => (
@@ -348,27 +378,6 @@ function FAQ() {
   );
 }
 
-function Articles() {
-  return (
-    <Section id="articles">
-      <div className="section-tag">ARTICLES</div>
-      <div className="section-title">Future founder resources</div>
-      <p className="section-sub">A lightweight placeholder for blog posts, launch notes, and practical guides when FENCEX is ready to publish.</p>
-      <div className="articles-list">
-        {articles.map((title) => (
-          <article className="article-row" key={title}>
-            <Newspaper size={18} />
-            <div>
-              <h4>{title}</h4>
-              <p>Coming soon</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 function Contact() {
   return (
     <Section id="contact">
@@ -429,7 +438,6 @@ function Footer() {
         <a className="footer-link" href="#services">Services</a>
         <a className="footer-link" href="#projects">Projects</a>
         <a className="footer-link" href="#pricing">Pricing</a>
-        <a className="footer-link" href="#articles">Articles</a>
         <a className="footer-link" href="#contact">Contact</a>
       </div>
       <div className="footer-copy">© 2026 FENCEX. All rights reserved. · fencex.io · hello@fencex.io</div>
@@ -457,7 +465,6 @@ export default function App() {
           <Pricing />
           <Testimonials />
           <FAQ />
-          <Articles />
           <Contact />
           <CTA />
         </motion.main>
