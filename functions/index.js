@@ -109,7 +109,6 @@ exports.contact = onRequest(
 
       return res.status(500).json({
         message: "Unable to send enquiry right now.",
-        error: error.message,
       });
     }
   }
