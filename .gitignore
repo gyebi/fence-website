@@ -5,6 +5,9 @@ reference/
 
 .env
 .env.*
+/.env
+/functions/.env
+!functions/.env.example
 
 *.log
 .DS_Store
