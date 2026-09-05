@@ -7,7 +7,7 @@ const navItems = [
   ["#services", "Services"],
   ["#projects", "Projects"],
   ["#process", "Process"],
-  ["#pricing", "Pricing"],
+  ["#pricing", "Packages"],
   ["#contact", "Contact"],
 ];
 
@@ -51,7 +51,7 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <nav className={`nav ${menuOpen ? "nav-open" : ""}`} aria-label="Main navigation">
-        <a className="nav-logo" href="#" aria-label="FenceX home">
+        <a className="nav-logo" href="#" aria-label="Fencex home">
           <img className="logo-image" src={fenceLogo} alt="FenceX logo" />
           <span className="logo-text">
             FENCE<span>X</span>

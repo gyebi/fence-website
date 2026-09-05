@@ -43,9 +43,10 @@ export default function App() {
           <Pricing onSelectPlan={handlePlanSelect} />
           <Testimonials />
           <FAQ />
-          <Contact selectedPlan={selectedPlan} />
           <CTA />
+          <Contact selectedPlan={selectedPlan} />
         </motion.main>
+        
         <Footer />
         <WhatsAppButton />
       </div>

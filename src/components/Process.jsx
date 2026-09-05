@@ -1,27 +1,57 @@
 import Section from "./Section.jsx";
 
 const processSteps = [
-  ["01", "Discovery call", "A free 15-minute call to understand your idea, goals, and budget. No pressure, no jargon, just a conversation."],
-  ["02", "Proposal & plan", "You receive a clear proposal with scope, timeline, and fixed pricing within 48 hours of your call."],
-  ["03", "We build", "Our team builds your product using the best tools and AI-assisted development: fast, clean, and scalable."],
-  ["04", "You launch", "We hand over a polished, scalable product and stay with you for support, updates, and growth."],
+  {
+    num: "01",
+    title: "Discovery",
+    text:
+      "We start with a focused conversation to understand your idea, business goals, users, budget, and timeline.",
+  },
+  {
+    num: "02",
+    title: "Strategy & scope",
+    text:
+      "We define the right solution, agree on the features that matter most, and prepare a clear project plan before development begins.",
+  },
+  {
+    num: "03",
+    title: "Design & build",
+    text:
+      "We design and build your website, MVP, app, or business system using modern tools, clean structure, and AI-assisted workflows.",
+  },
+  {
+    num: "04",
+    title: "Launch & support",
+    text:
+      "We test, deploy, and help you go live with confidence — then remain available for updates, improvements, and long-term growth.",
+  },
 ];
 
 export default function Process() {
   return (
     <Section id="process" tone="light">
       <div className="section-tag">THE PROCESS</div>
-      <div className="section-title">From idea to live in 4 steps</div>
-      <p className="section-sub">Simple, transparent, and designed to move at startup speed.</p>
+
+      <h2 className="section-title">From idea to launch with a clear plan.</h2>
+
+      <p className="section-sub">
+        A simple, transparent delivery process designed to help founders and
+        businesses move quickly without losing structure or quality.
+      </p>
+
       <div className="steps">
-        {processSteps.map(([num, title, text], index) => (
-          <div className={`step ${index === 0 ? "active" : ""}`} key={num}>
-            <div className="step-num">{num}</div>
+        {processSteps.map((step, index) => (
+          <article
+            className={`step ${index === 0 ? "active" : ""}`}
+            key={step.num}
+          >
+            <div className="step-num">{step.num}</div>
+
             <div className="step-body">
-              <h4>{title}</h4>
-              <p>{text}</p>
+              <h4>{step.title}</h4>
+              <p>{step.text}</p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </Section>

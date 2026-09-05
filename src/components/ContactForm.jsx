@@ -12,9 +12,9 @@ const initialFormData = {
 };
 
 const planDefaults = {
-  Basic: {
-    projectType: "Startup Website",
-    budget: "No budget / zero funds",
+  Launch: {
+    projectType: "Business Website",
+    budget: "$500 - $1,500",
   },
   Growth: {
     projectType: "MVP Development",
@@ -128,6 +128,7 @@ export default function ContactForm({ selectedPlan }) {
           required
         />
       </label>
+
       <label>
         Email Address *
         <input
@@ -139,6 +140,7 @@ export default function ContactForm({ selectedPlan }) {
           required
         />
       </label>
+
       <label>
         Phone / WhatsApp
         <input
@@ -149,6 +151,7 @@ export default function ContactForm({ selectedPlan }) {
           placeholder="+1 555 000 0000"
         />
       </label>
+
       <label>
         Company / Startup Name
         <input
@@ -156,27 +159,35 @@ export default function ContactForm({ selectedPlan }) {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          placeholder="Your company"
+          placeholder="Your company or startup"
         />
       </label>
+
       <label>
         Project Type
-        <select name="projectType" value={formData.projectType} onChange={handleChange}>
+        <select
+          name="projectType"
+          value={formData.projectType}
+          onChange={handleChange}
+        >
           <option value="">Select a project type</option>
+          <option value="Business Website">Business Website</option>
           <option value="Startup Website">Startup Website</option>
           <option value="MVP Development">MVP Development</option>
           <option value="SaaS Platform">SaaS Platform</option>
           <option value="E-commerce Website">E-commerce Website</option>
+          <option value="Mobile App">Mobile App</option>
+          <option value="Dashboard / Internal System">Dashboard / Internal System</option>
           <option value="Business Automation">Business Automation</option>
           <option value="Website Redesign">Website Redesign</option>
           <option value="Not Sure Yet">Not Sure Yet</option>
         </select>
       </label>
+
       <label>
         Estimated Budget
         <select name="budget" value={formData.budget} onChange={handleChange}>
           <option value="">Select a budget range</option>
-          <option value="No budget / zero funds">No budget / zero funds</option>
           <option value="Under $500">Under $500</option>
           <option value="$500 - $1,500">$500 - $1,500</option>
           <option value="$1,500 - $5,000">$1,500 - $5,000</option>
@@ -184,6 +195,7 @@ export default function ContactForm({ selectedPlan }) {
           <option value="Not Sure Yet">Not Sure Yet</option>
         </select>
       </label>
+
       <label className="contact-form-full">
         Tell us about your project *
         <textarea
@@ -200,11 +212,16 @@ export default function ContactForm({ selectedPlan }) {
 
       {status === "success" && (
         <div className="form-alert form-alert-success">
-          Thank you. Your enquiry has been sent successfully. Fence will contact you soon.
+          Thank you. Your enquiry has been sent successfully. Fencex will contact
+          you soon.
         </div>
       )}
 
-      <button type="submit" className="btn-primary contact-submit" disabled={isLoading}>
+      <button
+        type="submit"
+        className="btn-primary contact-submit"
+        disabled={isLoading}
+      >
         <Mail size={16} />
         {isLoading ? "Sending..." : "Send enquiry"}
       </button>
