@@ -10,7 +10,7 @@ export default function Section({ children, id, tone = "dark" }) {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
     >
-      {children}
+      <div className="section-inner">{children}</div>
     </motion.section>
   );
 }

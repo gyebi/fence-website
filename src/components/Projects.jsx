@@ -2,6 +2,10 @@ import Section from "./Section.jsx";
 import handimanLogo from "../../assets/handiman-logo.png";
 import huskAndHiveLogo from "../../assets/husk-and-hive-logo.jpeg";
 import nanasMamaLogo from "../../assets/nanasmama-logo-inverted.png";
+import posInABoxLogo from "../../assets/POS-in-a-Box.png";
+import willisPortLogo from "../../assets/Willis-Port.png";
+import topTechLogo from "../../assets/TopTech.png";
+import adinkraMemoryGameLogo from "../../assets/Adinkra-Memory-Game.png";
 import startupSeedling from "../../assets/startup_seedling.jpg";
 
 const portfolioProjects = [
@@ -56,8 +60,8 @@ const portfolioProjects = [
     description:
       "A custom logistics platform designed to capture customer requests, manage shipments, calculate pricing, generate invoices, track payments, and support manager workflows.",
     tech: "Next.js, PostgreSQL, Prisma, Firebase Auth, PDF invoices",
-    image: startupSeedling,
-    alt: "Willis Port freight invoicing system preview",
+    image: willisPortLogo,
+    alt: "Willis Port logo",
     buttonText: "Case study coming soon",
   },
   {
@@ -66,8 +70,8 @@ const portfolioProjects = [
     description:
       "A mobile point-of-sale system for small businesses, built with offline stock control, sales tracking, low-stock alerts, and Bluetooth thermal printer support.",
     tech: "Expo React Native, SQLite, Firebase Storage, Bluetooth printing",
-    image: startupSeedling,
-    alt: "POS in a Box mobile point-of-sale project preview",
+    image: posInABoxLogo,
+    alt: "POS in a Box logo",
     buttonText: "Case study coming soon",
   },
   {
@@ -76,8 +80,8 @@ const portfolioProjects = [
     description:
       "Mobile applications prepared for Android release testing, supporting structured learning workflows and internal training use cases.",
     tech: "React Native, Expo, Android APK release builds",
-    image: startupSeedling,
-    alt: "TopTech mobile apps project preview",
+    image: topTechLogo,
+    alt: "TopTech logo",
     buttonText: "Internal build",
   },
   {
@@ -86,8 +90,8 @@ const portfolioProjects = [
     description:
       "A cultural memory game concept built around Adinkra symbols, designed as an engaging web experience with mobile-friendly gameplay.",
     tech: "PWA, JavaScript, responsive game UI",
-    image: startupSeedling,
-    alt: "Adinkra Memory Game project preview",
+    image: adinkraMemoryGameLogo,
+    alt: "Adinkra Memory Game logo",
     buttonText: "Project preview",
   },
 ];

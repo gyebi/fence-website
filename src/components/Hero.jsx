@@ -22,12 +22,14 @@ export default function Hero() {
         <div className="hero-tag">Startup Technology Partner</div>
 
         <h1>Build your website, app, or startup MVP with confidence.</h1>
-
+        {/*
         <p className="hero-sub">
           Fencex helps startups and growing businesses design, build, and launch
           secure digital products — from modern websites to custom software,
           SaaS platforms, and business automation tools.
         </p>
+        */}
+
 
         <div className="hero-ctas">
           <a className="btn-primary" href="#contact">

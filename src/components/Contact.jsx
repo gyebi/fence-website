@@ -4,7 +4,7 @@ import laptopBackground from "../../assets/laptop2.jpg";
 export default function ContactSection({ selectedPlan }) {
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-section-inner">
+      <div className="contact-section-inner section-inner">
         <img className="contact-background-laptop" src={laptopBackground} alt="" aria-hidden="true" />
         <h2>Start your project</h2>
         <p>

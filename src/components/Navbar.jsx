@@ -22,25 +22,46 @@ export default function Navbar() {
 
     if (!sections.length) return undefined;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+    let frameId = 0;
 
-        if (visibleEntry) {
-          setActiveHref(`#${visibleEntry.target.id}`);
+    const updateActiveSection = () => {
+      const activationLine = window.scrollY + window.innerHeight * 0.38;
+      let currentSection = sections[0];
+
+      for (const section of sections) {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+        if (sectionTop <= activationLine) {
+          currentSection = section;
+        } else {
+          break;
         }
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveHref(`#${currentSection.id}`);
+    };
 
-    return () => observer.disconnect();
+    const handleScrollOrResize = () => {
+      if (frameId) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = 0;
+        updateActiveSection();
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScrollOrResize, { passive: true });
+    window.addEventListener("resize", handleScrollOrResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollOrResize);
+      window.removeEventListener("resize", handleScrollOrResize);
+
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
 
   const handleNavClick = (href) => {
